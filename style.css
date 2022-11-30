@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;500;700;800;900&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#d479f8, #5ce7fa);
+}
+.main
+{
+
+    padding: 2rem 0;
+}
+.bd-grid
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    max-width: 1200px;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    align-items: center;
+    gap: 2rem;
+}
+.card
+{
+    position: relative;
+    width: 450px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+
+}
+.card .poster
+{
+    position: relative;
+    overflow: hidden;
+}
+.card .poster::before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: -180px;
+    transition: 0.5s;
+    z-index: 1;
+}
+.card:hover .poster::before
+{
+    bottom: 0px;
+}
+.card .poster img
+{
+    width: 100%;
+    transition: 0.5s;
+}
+.card:hover .poster img
+{
+    transform: translateY(-50px);
+    filter: blur(5px);
+}
+.card .details
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    width: 100%;
+    z-index: 2;
+    transition: 0.5s;
+    
+}
+.card:hover .details
+{
+    bottom: 40px;
+}
+
+.card .details h3
+{
+    font-size: 1.7rem;
+    color: #FFF;
+
+}
+.card .details .rating
+{
+    position: relative;
+    padding: 5px 0;
+}
+.card .details .rating i
+{
+    color: #f8da2de3;
+    font-size: 1em;
+}
+.card .details .rating span
+{
+    color: #FFF;
+}
+.card .details .button
+{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+.card .details .button a
+{
+    text-decoration: none;
+    display: inline-block;
+    align-items: center;
+    height: 50px;
+    background: #3361f8;
+    color: #fff;
+    border-radius: 8px;
+    border: 2px solid #3361f8;
+    padding: 10px 30px;
+    margin-right: 20px;
+    font-size: 1.3rem;
+    transition: 0.5s;
+}
+
+.card .details .button a:hover
+{
+    transform: scale(1.1);
+    background: transparent;
+    border: 2px solid #3361f8;
+    color: #161616;
+
+}
+.card .details .button a i
+{
+    margin-left: 10px;
+}
+
+.card .details .info
+{
+    color: rgb(49, 49, 49);
+    margin-top: 20px;
+}
+.card .details .info p
+{
+    font-size: 1.3rem;
+}
+.main .card
+{
+    display: none;
+}
+.main .card.active{
+    display: block;
+}
+
+.main #prev,
+.main #next{
+    position: absolute;
+    top:50%; 
+    transform:translateY(-50%);
+    border-radius: 50%;
+    z-index: 100;
+    height:5rem;
+    width:5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    color:var(--black);
+    border:.2rem solid var(--black);
+    cursor: pointer;
+    text-align: center;
+}
+
+.main #prev:hover,
+.main #next:hover{
+    color:#fff;
+    background:var(--orange);
+}
+
+.main #prev{
+    left:3rem;
+}
+
+.main #next{
+    right:3rem;
+}
